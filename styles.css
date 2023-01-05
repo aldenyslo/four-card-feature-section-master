@@ -1,0 +1,214 @@
+:root {
+    --clr-primary-500: hsl(0, 78%, 62%);
+    --clr-primary-400: hsl(34, 97%, 64%);
+    --clr-primary-300: hsl(180, 62%, 55%);
+    --clr-primary-200: hsl(212, 86%, 64%);
+
+    --clr-neutral-800: hsl(234, 12%, 34%);
+    --clr-neutral-400: hsl(229, 6%, 66%);
+    --clr-neutral-200: hsl(0, 0%, 98%);
+    --clr-neutral-100: hsl(0, 0%, 100%);
+
+    --ff-regular: 'Poppins', sans-serif;
+
+    --fw-light: 200;
+    --fw-regular: 400;
+    --fw-bold: 600;
+}
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+  /*
+    3. Allow percentage-based heights in the application
+  */
+  html {
+    height: 100%;
+  }
+
+  body {
+    min-height: 100%;
+  }
+
+  /*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  /*
+    6. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    7. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    8. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.4;
+  }
+  /*
+    9. Create a root stacking context
+  */
+  #root, #__next {
+    isolation: isolate;
+  }
+
+  body {
+    background-color: var(--clr-neutral-200);
+    font-family: var(--ff-regular);
+    font-weight: var(--fw-regular);
+    font-size: 0.9375rem;
+    color: var(--clr-neutral-400);
+    padding: 4rem 2.2rem;
+    text-align: center;
+    display: grid;
+    place-content: center;
+    gap: 3.5rem;
+    overflow: auto;
+  }
+
+  .title {
+    font-weight: var(--fw-light);
+    color: var(--clr-neutral-800);
+    font-size: 1.5rem;
+  }
+
+  .title strong {
+    display: block;
+    font-weight: var(--fw-bold);
+  }
+
+  header {
+    display: grid;
+    gap: 1.2rem;
+  }
+
+  header, main, .desc {
+    max-width: 500px;
+  }
+
+  .desc {
+    justify-self: center;
+  }
+
+  .cards {
+    display: grid;
+    gap: 1.8rem;
+    --card-padding: 1.8rem;
+  }
+
+  .card {
+    background-color: var(--clr-neutral-100);
+    text-align: left;
+    padding: var(--card-padding);
+    border-radius: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    line-height: 1.8;
+    box-shadow: 0 10px 12px 3px rgba(0, 0, 0, 0.1)
+  }
+
+  .card h2 {
+    color: var(--clr-neutral-800);
+    font-size: 1.2rem;
+    margin-bottom: 0.3em;
+  }
+
+  .card p {
+    font-size: 0.85rem;
+    margin-bottom: 2rem;
+  }
+
+  .card-container:nth-of-type(2) {
+    display: grid;
+    gap: 1.8rem;
+  }
+
+  .card::before {
+    content: "";
+    background-color: black;
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    margin-top: calc(var(--card-padding) * -1);
+    margin-left: calc(var(--card-padding) * -1);
+  }
+
+  .supervisor::before {
+    background-color: var(--clr-primary-300);
+  }
+
+  .team-builder::before {
+    background-color: var(--clr-primary-500);
+  }
+
+  .karma::before {
+    background-color: var(--clr-primary-400);
+  }
+
+  .calculator::before {
+    background-color: var(--clr-primary-200)
+  }
+
+  .card::after {
+    margin-left: calc(100% - 64px);
+  }
+
+  .supervisor::after {
+    content: url(./images/icon-supervisor.svg);
+  }
+
+  .team-builder::after {
+    content: url(./images/icon-team-builder.svg);
+  }
+
+  .karma::after {
+    content: url(./images/icon-karma.svg);
+  }
+
+  .calculator::after {
+    content: url(./images/icon-calculator.svg);
+  }
+
+  @media (min-width: 800px) {
+    header, main {
+        max-width: 1100px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(3, 1fr)
+    }
+
+    .cards:nth-child(1) > * {
+        align-self: center;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+  }
